@@ -7,51 +7,33 @@ const Skills: React.FC = () => {
   const skillCategories = [
     {
       category: 'Frontend',
-      skills: ['React.js', 'Next.js 15', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5', 'CSS3', 'DaisyUI', 'Framer Motion'],
+      skills: [
+        { name: 'React.js / Next.js', level: 85 },
+        { name: 'JavaScript (ES6+) / TypeScript', level: 80 },
+        { name: 'Tailwind CSS / HTML5 / CSS3', level: 90 },
+        { name: 'Framer Motion / DaisyUI', level: 75 },
+      ],
     },
     {
       category: 'Backend',
-      skills: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'JWT Authentication', 'REST APIs', 'Cookie-based Sessions'],
+      skills: [
+        { name: 'Node.js / Express.js', level: 75 },
+        { name: 'MongoDB / Mongoose', level: 75 },
+        { name: 'JWT Authentication / REST APIs', level: 80 },
+      ],
     },
     {
-      category: 'Database & Tools',
-      skills: ['MongoDB Atlas', 'Git/GitHub', 'VS Code', 'Vercel', 'Render', 'Adobe Illustrator', 'Adobe Photoshop'],
-    },
-    {
-      category: 'Programming Languages',
-      skills: ['JavaScript/TypeScript', 'Python', 'Java', 'C++', 'PHP', 'HTML/CSS'],
-    },
-    {
-      category: 'Core Competencies',
-      skills: ['Data Structures & Algorithms', 'OOP Principles', 'Problem Solving', 'Full Stack Development', 'Responsive Design'],
-    },
-    {
-      category: 'Specializations',
-      skills: ['MERN Stack', 'Full Stack Web Development', 'API Development', 'Authentication Systems', 'UI/UX Design'],
+      category: 'Tools & Languages',
+      skills: [
+        { name: 'Git / GitHub', level: 85 },
+        { name: 'Python / Java / C++', level: 65 },
+        { name: 'Data Structures & Algorithms', level: 70 },
+      ],
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <section className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="skills" className="py-20 px-4 md:px-8 max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,36 +49,39 @@ const Skills: React.FC = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        {skillCategories.map((category, index) => (
+      <div className="grid md:grid-cols-3 gap-8">
+        {skillCategories.map((cat, idx) => (
           <motion.div
-            key={index}
-            variants={itemVariants}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-6 hover:border-accent-primary/50 transition-all duration-300"
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-lg p-6"
           >
-            <h3 className="text-xl font-bold mb-4 text-accent-primary">
-              {category.category}
-            </h3>
-            <ul className="space-y-2">
-              {category.skills.map((skill, skillIndex) => (
-                <li
-                  key={skillIndex}
-                  className="text-slate-300 flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 bg-accent-secondary rounded-full"></span>
-                  {skill}
-                </li>
+            <h3 className="text-xl font-bold mb-6 text-accent-primary">{cat.category}</h3>
+            <div className="space-y-5">
+              {cat.skills.map((skill, i) => (
+                <div key={i}>
+                  <div className="flex justify-between mb-2 text-sm font-medium text-slate-300">
+                    <span>{skill.name}</span>
+                    <span>{skill.level}%</span>
+                  </div>
+                  <div className="w-full bg-slate-700/50 rounded-full h-2">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1, delay: i * 0.1 }}
+                      viewport={{ once: true }}
+                      className="bg-gradient-to-r from-accent-primary to-accent-secondary h-2 rounded-full"
+                    />
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

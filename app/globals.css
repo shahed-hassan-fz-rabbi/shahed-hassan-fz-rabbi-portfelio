@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-accent-primary: #0ea5e9;
+  --color-accent-secondary: #8b5cf6;
+}
 
 * {
   margin: 0;
@@ -12,7 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Dark Theme (Default) */
 :root[data-theme='dark'] {
   --bg-primary: #1a2942;
   --bg-secondary: #243456;
@@ -21,7 +23,6 @@ html {
   --border-color: #334155;
 }
 
-/* Light Theme */
 :root[data-theme='light'] {
   --bg-primary: #f8fafc;
   --bg-secondary: #f1f5f9;
@@ -39,7 +40,6 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -63,20 +63,16 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+  background-image: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 .float {
@@ -91,7 +87,6 @@ a {
   box-shadow: 0 0 40px rgba(14, 165, 233, 0.5);
 }
 
-/* Project Card Styling */
 [class*="bg-gradient-to-br from-slate"] {
   transition: all 0.3s ease;
 }
@@ -101,7 +96,6 @@ a {
   box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
 }
 
-/* Technology Tags */
 [class*="bg-accent-primary/10"] {
   padding: 8px 12px;
   border-radius: 20px;
@@ -118,89 +112,57 @@ a {
   transform: scale(1.05);
 }
 
-a[href*="github"],
-a[href*="linkedin"],
-a[href*="mailto"] {
-  position: relative;
-  font-weight: 600;
-}
-
-a[href*="github"]::after,
-a[href*="linkedin"]::after,
-a[href*="mailto"]::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-a[href*="github"]:hover::after,
-a[href*="linkedin"]:hover::after,
-a[href*="mailto"]:hover::after {
-  width: 100%;
-}
-
-/* LIGHT THEME - Text Color Fix */
+/* Light theme text fixes */
 :root[data-theme='light'] h1,
 :root[data-theme='light'] h2,
 :root[data-theme='light'] h3,
 :root[data-theme='light'] h4,
 :root[data-theme='light'] h5,
 :root[data-theme='light'] h6 {
-  color: #0f172a !important;
+  color: #0f172a;
 }
 
 :root[data-theme='light'] p,
 :root[data-theme='light'] span,
 :root[data-theme='light'] a {
-  color: #1e293b !important;
+  color: #1e293b;
 }
 
 :root[data-theme='light'] .text-slate-300,
 :root[data-theme='light'] .text-slate-400,
 :root[data-theme='light'] .text-slate-500 {
-  color: #1e293b !important;
+  color: #1e293b;
 }
 
 :root[data-theme='light'] header {
-  background: rgba(248, 250, 252, 0.95) !important;
-  border-color: var(--border-color) !important;
+  background: rgba(248, 250, 252, 0.95);
+  border-color: var(--border-color);
 }
 
 :root[data-theme='light'] .bg-slate-800\/50,
 :root[data-theme='light'] .bg-slate-900\/50 {
-  background-color: rgba(248, 250, 252, 0.9) !important;
-  border: 1px solid #e2e8f0 !important;
+  background-color: rgba(248, 250, 252, 0.9);
+  border: 1px solid #e2e8f0;
 }
 
 :root[data-theme='light'] .border-slate-700\/50 {
-  border-color: var(--border-color) !important;
+  border-color: var(--border-color);
 }
 
 :root[data-theme='light'] input,
 :root[data-theme='light'] textarea {
-  background: white !important;
-  color: #0f172a !important;
-  border-color: #e2e8f0 !important;
+  background: white;
+  color: #0f172a;
+  border-color: #e2e8f0;
 }
 
 :root[data-theme='light'] input::placeholder,
 :root[data-theme='light'] textarea::placeholder {
-  color: #94a3b8 !important;
-  opacity: 1 !important;
-}
-
-:root[data-theme='light'] input:focus,
-:root[data-theme='light'] textarea:focus {
-  border-color: #0ea5e9 !important;
-  outline: none;
+  color: #94a3b8;
+  opacity: 1;
 }
 
 :root[data-theme='light'] footer {
-  background-color: rgba(248, 250, 252, 0.8) !important;
-  border-color: #e2e8f0 !important;
+  background-color: rgba(248, 250, 252, 0.8);
+  border-color: #e2e8f0;
 }

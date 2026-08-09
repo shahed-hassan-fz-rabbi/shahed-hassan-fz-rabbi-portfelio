@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const containerVariants = {
+  // Variants type ডিফাইন করে দেওয়া হয়েছে
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -16,12 +17,12 @@ const Hero: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.8, ease: "easeOut" },
     },
   };
 
@@ -59,7 +60,6 @@ const Hero: React.FC = () => {
               CSE student at Comilla University with expertise in DSA, OOP, and modern web technologies.
             </motion.p>
 
-            {/* Resume & Contact Buttons */}
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4"
@@ -80,7 +80,6 @@ const Hero: React.FC = () => {
               </a>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div variants={itemVariants} className="flex justify-center md:justify-start gap-6 pt-2 flex-wrap">
               <a
                 href="https://github.com/shahed-hassan-fz-rabbi"
@@ -115,13 +114,13 @@ const Hero: React.FC = () => {
             className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-accent-primary/50 shadow-2xl flex-shrink-0 bg-slate-800"
           >
             <Image
-                 src="/profile.png"
-                   alt="MD Rabbi Miah"
-                   fill
-                    sizes="(max-width: 768px) 100vw, 300px"
-                    className="object-cover"
-                       priority
-                      />
+              src="/profile.png"
+              alt="MD Rabbi Miah"
+              fill
+              sizes="(max-width: 768px) 100vw, 300px"
+              className="object-cover"
+              priority
+            />
           </motion.div>
         </motion.div>
       </div>

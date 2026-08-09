@@ -11,9 +11,9 @@ const About: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mb-12"
+        className="mb-12 text-center md:text-left"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-main)]">
           About <span className="gradient-text">Me</span>
         </h2>
       </motion.div>
@@ -23,7 +23,7 @@ const About: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: true }}
-        className="space-y-5 text-slate-300 text-lg leading-relaxed bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-lg p-8"
+        className="space-y-5 text-[var(--text-muted)] text-lg leading-relaxed bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-8 shadow-lg transition-colors duration-300"
       >
         <p>
           My programming journey started with curiosity about how websites actually work behind the
@@ -37,7 +37,7 @@ const About: React.FC = () => {
           creative satisfaction.
         </p>
         <p>
-          Outside of coding, I am involved in my university's IT Society as part of the graphics
+          Outside of coding, I am involved in my university&apos;s IT Society as part of the graphics
           team, and I lead media and publication activities for a mental wellness club on campus.
           I enjoy graphic design with Adobe Illustrator and Photoshop, and I am currently exploring
           Machine Learning and Cyber Security as my next areas of growth.

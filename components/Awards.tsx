@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const Awards: React.FC = () => {
   const awards = [
@@ -28,7 +28,7 @@ const Awards: React.FC = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -38,12 +38,12 @@ const Awards: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -54,12 +54,12 @@ const Awards: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mb-16"
+        className="mb-16 text-center md:text-left"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-main)]">
           Awards & <span className="gradient-text">Achievements</span>
         </h2>
-        <p className="text-slate-400 text-lg">
+        <p className="text-[var(--text-muted)] text-lg">
           Recognition and accomplishments in competitive programming and development
         </p>
       </motion.div>
@@ -75,25 +75,27 @@ const Awards: React.FC = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-8 hover:border-accent-primary/50 transition-all duration-300"
+            className="group bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-8 shadow-lg hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
           >
-            <div className="text-5xl mb-4">{award.icon}</div>
-            
-            <h3 className="text-2xl font-bold mb-2 text-white">
-              {award.title}
-            </h3>
+            <div>
+              <div className="text-5xl mb-4">{award.icon}</div>
 
-            <div className="mb-4">
-              <span className="inline-block px-3 py-1 bg-accent-primary/20 text-accent-primary text-sm font-semibold rounded-full border border-accent-primary/30">
-                {award.achievement}
-              </span>
+              <h3 className="text-2xl font-bold mb-2 text-[var(--text-main)]">
+                {award.title}
+              </h3>
+
+              <div className="mb-4">
+                <span className="inline-block px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-semibold rounded-full border border-blue-500/20">
+                  {award.achievement}
+                </span>
+              </div>
+
+              <p className="text-[var(--text-muted)] mb-4 leading-relaxed text-sm md:text-base">
+                {award.description}
+              </p>
             </div>
 
-            <p className="text-slate-300 mb-4 leading-relaxed">
-              {award.description}
-            </p>
-
-            <p className="text-slate-500 text-sm font-semibold">
+            <p className="text-[var(--text-muted)] opacity-75 text-sm font-semibold mt-2">
               {award.year}
             </p>
           </motion.div>

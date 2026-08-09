@@ -11,7 +11,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <main className="min-h-screen bg-[var(--bg-main)] text-[var(--text-main)] transition-colors duration-300">
       <Header />
       <Hero />
       <Projects />

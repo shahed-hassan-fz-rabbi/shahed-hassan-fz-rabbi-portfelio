@@ -26,13 +26,12 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate form submission (replace with actual backend call)
+    // Simulate form submission
     setTimeout(() => {
       setSubmitted(true);
       setFormState({ name: '', email: '', message: '' });
       setLoading(false);
 
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitted(false), 5000);
     }, 1000);
   };
@@ -46,11 +45,11 @@ const Contact: React.FC = () => {
         viewport={{ once: true }}
         className="mb-16 text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Let's <span className="gradient-text">Connect</span>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-main)]">
+          Let&apos;s <span className="gradient-text">Connect</span>
         </h2>
-        <p className="text-slate-400 text-lg">
-          I'm open to internship opportunities and interesting projects. Feel free to reach out!
+        <p className="text-[var(--text-muted)] text-lg">
+          I&apos;m open to internship opportunities and interesting projects. Feel free to reach out!
         </p>
       </motion.div>
 
@@ -64,33 +63,33 @@ const Contact: React.FC = () => {
           className="space-y-8"
         >
           <div>
-            <h3 className="text-xl font-bold mb-2 text-accent-primary">Email</h3>
+            <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Email</h3>
             <a
               href="mailto:shahedhassan571@gmail.com"
-              className="text-slate-300 hover:text-accent-primary transition-colors"
+              className="text-[var(--text-muted)] hover:text-blue-500 transition-colors"
             >
               shahedhassan571@gmail.com
             </a>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-2 text-accent-primary">Phone</h3>
+            <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Phone</h3>
             <a
               href="tel:+8801738039808"
-              className="text-slate-300 hover:text-accent-primary transition-colors"
+              className="text-[var(--text-muted)] hover:text-blue-500 transition-colors"
             >
               +880 1738-039808
             </a>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4 text-accent-primary">Social</h3>
+            <h3 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">Social</h3>
             <div className="flex gap-6">
               <a
                 href="https://github.com/shahed-hassan-fz-rabbi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-accent-primary transition-colors font-semibold"
+                className="text-[var(--text-muted)] hover:text-blue-500 transition-colors font-semibold"
               >
                 GitHub
               </a>
@@ -98,7 +97,7 @@ const Contact: React.FC = () => {
                 href="https://linkedin.com/in/shahed-hassan-fz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-accent-primary transition-colors font-semibold"
+                className="text-[var(--text-muted)] hover:text-blue-500 transition-colors font-semibold"
               >
                 LinkedIn
               </a>
@@ -106,13 +105,13 @@ const Contact: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-2 text-accent-primary">Location</h3>
-            <p className="text-slate-300">Narsingdi, Dhaka, Bangladesh 🇧🇩</p>
+            <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Location</h3>
+            <p className="text-[var(--text-muted)]">Narsingdi, Dhaka, Bangladesh 🇧🇩</p>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-2 text-accent-primary">Availability</h3>
-            <p className="text-slate-300">Open for Remote Internships & Projects</p>
+            <h3 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">Availability</h3>
+            <p className="text-[var(--text-muted)]">Open for Remote Internships & Projects</p>
           </div>
         </motion.div>
 
@@ -126,7 +125,7 @@ const Contact: React.FC = () => {
           className="space-y-6"
         >
           <div>
-            <label htmlFor="name" className="block text-sm font-semibold mb-2">
+            <label htmlFor="name" className="block text-sm font-semibold mb-2 text-[var(--text-main)]">
               Name
             </label>
             <input
@@ -136,13 +135,13 @@ const Contact: React.FC = () => {
               value={formState.name}
               onChange={handleChange}
               required
-              className="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-primary transition-colors"
+              className="w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg px-4 py-3 text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-blue-500 transition-colors"
               placeholder="Your name"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold mb-2">
+            <label htmlFor="email" className="block text-sm font-semibold mb-2 text-[var(--text-main)]">
               Email
             </label>
             <input
@@ -152,13 +151,13 @@ const Contact: React.FC = () => {
               value={formState.email}
               onChange={handleChange}
               required
-              className="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-primary transition-colors"
+              className="w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg px-4 py-3 text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-blue-500 transition-colors"
               placeholder="your.email@example.com"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-semibold mb-2">
+            <label htmlFor="message" className="block text-sm font-semibold mb-2 text-[var(--text-main)]">
               Message
             </label>
             <textarea
@@ -168,7 +167,7 @@ const Contact: React.FC = () => {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-primary transition-colors resize-none"
+              className="w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-lg px-4 py-3 text-[var(--text-main)] placeholder-[var(--text-muted)] focus:outline-none focus:border-blue-500 transition-colors resize-none"
               placeholder="Tell me about your opportunity..."
             ></textarea>
           </div>
@@ -176,7 +175,7 @@ const Contact: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full px-6 py-3 bg-gradient-to-r from-accent-primary to-accent-secondary text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-accent-primary/50 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow-lg shadow-blue-600/30 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
           >
             {loading ? 'Sending...' : 'Send Message'}
           </button>
@@ -185,9 +184,9 @@ const Contact: React.FC = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-accent-primary font-semibold text-center"
+              className="text-blue-500 font-semibold text-center"
             >
-              ✓ Message sent! I'll get back to you soon.
+              ✓ Message sent! I&apos;ll get back to you soon.
             </motion.p>
           )}
         </motion.form>

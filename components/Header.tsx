@@ -7,13 +7,14 @@ import { motion } from 'framer-motion';
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Awards', href: '#awards' },
-    { name: 'Contact', href: '#contact' },
-  ];
+ const navItems = [
+  { name: 'About', href: '#about' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Education', href: '#education' },
+  { name: 'Awards', href: '#awards' },
+  { name: 'Contact', href: '#contact' },
+];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-main)]/80 backdrop-blur-md border-b border-[var(--border-color)] transition-colors duration-300">

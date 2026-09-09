@@ -25,7 +25,7 @@ export default function Home() {
       <Awards />
       <Contact />
       <Footer />
-      <ThemeToggle />
+      
     </main>
   );
 }

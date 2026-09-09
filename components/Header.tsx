@@ -7,14 +7,15 @@ import { motion } from 'framer-motion';
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
- const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Education', href: '#education' },
-  { name: 'Awards', href: '#awards' },
-  { name: 'Contact', href: '#contact' },
-];
+  const navItems = [
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Education', href: '#education' },
+    { name: 'Awards', href: '#awards' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-main)]/80 backdrop-blur-md border-b border-[var(--border-color)] transition-colors duration-300">
@@ -32,6 +33,7 @@ const Header: React.FC = () => {
               alt="Shahed Hassan"
               fill
               className="object-cover object-top"
+              priority
             />
           </div>
           <span className="text-lg font-bold text-[var(--text-main)] group-hover:text-blue-500 transition-colors">
@@ -40,15 +42,15 @@ const Header: React.FC = () => {
         </motion.a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6">
           {navItems.map((item, index) => (
             <motion.a
-              key={index}
+              key={item.name}
               href={item.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * (index + 1) }}
-              className="text-[var(--text-main)] hover:text-blue-500 transition-colors font-semibold text-base"
+              transition={{ delay: 0.05 * (index + 1) }}
+              className="text-[var(--text-main)] hover:text-blue-500 transition-colors font-semibold text-sm"
             >
               {item.name}
             </motion.a>
@@ -60,7 +62,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-md shadow-blue-600/30 transition-all text-sm"
+            className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold shadow-md shadow-blue-600/30 transition-all text-xs lg:text-sm"
           >
             View Code
           </motion.a>
@@ -87,9 +89,9 @@ const Header: React.FC = () => {
           className="md:hidden bg-[var(--bg-card)]/95 backdrop-blur-md border-t border-[var(--border-color)] transition-colors duration-300"
         >
           <div className="px-4 py-6 space-y-4">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <a
-                key={index}
+                key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className="block text-[var(--text-main)] hover:text-blue-500 transition-colors font-semibold text-base"

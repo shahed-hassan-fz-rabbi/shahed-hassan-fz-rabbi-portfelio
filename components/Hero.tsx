@@ -38,13 +38,13 @@ export default function Hero() {
         >
           <motion.div variants={itemVariants}>
             <span className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-500 dark:text-blue-400 text-sm font-semibold">
-              Frontend Web Developer
+              Full Stack Web Developer
             </span>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <h1 className="text-4xl md:text-6xl font-bold mb-3 leading-tight text-[var(--text-main)]">
-              Hello, I&apos;m <span className="gradient-text">Shahed Hassan</span>
+              Hello, I&apos;m <span className="gradient-text">Md Rabbi Miah</span>
             </h1>
             <p className="text-lg md:text-xl text-[var(--text-muted)] font-light">
               Building modern, responsive, and user-friendly web applications using React, Next.js, and Tailwind CSS.

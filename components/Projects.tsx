@@ -20,36 +20,36 @@ interface Project {
 const projectsData: Project[] = [
   {
     id: '1',
-    title: 'DriveFleet - Full Stack Car Rental Platform',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop',
-    description: 'Complete car rental platform with Google OAuth + JWT authentication, protected private routes, secure cookie-based sessions, booking system, and personal dashboard.',
-    technologies: ['Next.js 15', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Tailwind CSS'],
-    github: 'https://github.com/shahed-hassan-fz-rabbi',
-    live: 'https://drivefleet-demo.vercel.app',
-    challenges: 'Handling real-time availability sync during double-booking attempts and managing secure HTTP-only cookies across dynamic domain environments.',
-    futurePlans: 'Add automated payment gateway integration (Stripe/SSLCommerz), real-time GPS tracking for cars, and automated email invoice generation.',
+    title: 'W2A Intelligence -- Smart Waste-to-Assets System',
+    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop',
+    description: 'Academic project at Comilla University connecting municipal waste collection to recycling partners using Gemini AI and real-time allocation.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'MySQL', 'Gemini Vision API'],
+    github: 'https://github.com/shahed-hassan-fz-rabbi/W2A-Intelligence',
+    live: 'https://w2-a-intelligence-phi.vercel.app',
+    challenges: 'Designing a 3NF-normalized relational schema in MySQL and building an allocation algorithm matching batch capacity with recycling partner requirements in real-time.',
+    futurePlans: 'Implement automated IoT smart bin sensor integration and expand carbon offset analytics with downloadable PDF reports.',
   },
   {
     id: '2',
-    title: 'Job Tracker Application',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop',
-    description: 'Dynamic job application tracker with filtered views, status management, and event delegation patterns.',
-    technologies: ['JavaScript', 'Tailwind CSS', 'DaisyUI', 'Local Storage', 'DOM API'],
+    title: 'DriveFleet -- Full Stack Car Rental Platform',
+    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop',
+    description: 'End-to-end car rental web application with Google OAuth + JWT authentication, protected routes, reservation system, and full inventory management.',
+    technologies: ['Next.js 15', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'BetterAuth', 'Tailwind CSS'],
     github: 'https://github.com/shahed-hassan-fz-rabbi',
-    live: 'https://jobtracker-demo.vercel.app',
-    challenges: 'Structuring smooth client-side filtering without DOM performance lag during state changes.',
-    futurePlans: 'Integrate backend database support with Express.js and add automated interview reminder notifications.',
+    live: 'https://drivefleet-nine.vercel.app',
+    challenges: 'Managing secure cross-origin HTTP-only cookie sessions and preventing overlapping reservations through atomic database operations.',
+    futurePlans: 'Integrate automated payment gateway processing (SSLCommerz/Stripe) and live driver location tracking.',
   },
   {
     id: '3',
-    title: 'TechWave Landing Page',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
-    description: 'Modern tech-focused landing page with responsive UI and interactive JavaScript-driven components.',
-    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
-    github: 'https://github.com/shahed-hassan-fz-rabbi',
-    live: 'https://techwave-demo.vercel.app',
-    challenges: 'Ensuring seamless cross-browser animation performance and perfect pixel alignment across mobile viewpoints.',
-    futurePlans: 'Convert into a full Next.js template with CMS support for blog posts and dynamic product listings.',
+    title: 'Fable -- Ebook Sharing & Marketplace Platform',
+    image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop',
+    description: 'Multi-role digital book marketplace (Reader/Writer/Admin) featuring Stripe checkout, webhook order fulfillment, and author sales analytics.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Stripe API'],
+    github: 'https://github.com/shahed-hassan-fz-rabbi/Ebook-Store',
+    live: 'https://ebook-store-steel.vercel.app/',
+    challenges: 'Handling asynchronous Stripe webhook lifecycles securely to unlock digital books and manage reader reading state synchronization.',
+    futurePlans: 'Add audio-book narration player support and an AI-driven personalized reading recommendation engine.',
   },
 ];
 
@@ -79,11 +79,10 @@ const Projects: React.FC = () => {
           Featured <span className="gradient-text">Projects</span>
         </h2>
         <p className="text-[var(--text-muted)] text-lg">
-          Showcasing my best web development applications
+          Production and academic web applications built with modern stacks
         </p>
       </motion.div>
 
-      {/* Project Cards Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -98,7 +97,6 @@ const Projects: React.FC = () => {
             className="group bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl overflow-hidden shadow-lg hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              {/* Project Image */}
               <div className="relative w-full h-48 overflow-hidden bg-slate-800">
                 <Image
                   src={project.image}
@@ -116,7 +114,6 @@ const Projects: React.FC = () => {
                   {project.description}
                 </p>
 
-                {/* Tech Badges */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {project.technologies.slice(0, 4).map((tech, i) => (
                     <span
@@ -135,7 +132,6 @@ const Projects: React.FC = () => {
               </div>
             </div>
 
-            {/* View Details Button */}
             <div className="px-6 pb-6">
               <button
                 onClick={() => setSelectedProject(project)}
@@ -149,7 +145,7 @@ const Projects: React.FC = () => {
         ))}
       </motion.div>
 
-      {/* Project Details Modal */}
+      {/* Details Modal */}
       <AnimatePresence>
         {selectedProject && (
           <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
@@ -171,7 +167,6 @@ const Projects: React.FC = () => {
                 {selectedProject.title}
               </h3>
 
-              {/* Modal Image */}
               <div className="relative w-full h-56 rounded-xl overflow-hidden mb-6 border border-[var(--border-color)]">
                 <Image
                   src={selectedProject.image}
@@ -181,7 +176,6 @@ const Projects: React.FC = () => {
                 />
               </div>
 
-              {/* Technologies */}
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-[var(--text-main)] uppercase tracking-wider mb-2">
                   Technology Stack
@@ -198,7 +192,6 @@ const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Description */}
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-[var(--text-main)] uppercase tracking-wider mb-2">
                   Description
@@ -208,7 +201,6 @@ const Projects: React.FC = () => {
                 </p>
               </div>
 
-              {/* Challenges Faced */}
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-[var(--text-main)] uppercase tracking-wider mb-2">
                   Challenges Faced
@@ -218,7 +210,6 @@ const Projects: React.FC = () => {
                 </p>
               </div>
 
-              {/* Future Plans */}
               <div className="mb-8">
                 <h4 className="text-sm font-semibold text-[var(--text-main)] uppercase tracking-wider mb-2">
                   Future Plans & Potential Improvements
@@ -228,7 +219,6 @@ const Projects: React.FC = () => {
                 </p>
               </div>
 
-              {/* Links */}
               <div className="flex flex-wrap gap-4 pt-4 border-t border-[var(--border-color)]">
                 <a
                   href={selectedProject.live}
@@ -244,7 +234,7 @@ const Projects: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--bg-main)] border border-[var(--border-color)] text-[var(--text-main)] hover:border-blue-500 hover:text-blue-500 rounded-xl font-semibold text-sm transition-all"
                 >
-                  <FaGithub /> GitHub Client
+                  <FaGithub /> GitHub Repository
                 </a>
               </div>
             </motion.div>
